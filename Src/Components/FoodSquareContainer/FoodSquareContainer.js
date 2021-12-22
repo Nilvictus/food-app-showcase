@@ -7,7 +7,7 @@ const FoodSquareContainer = () => {
   return (
       <TouchableOpacity style={styles.main}>
         <Image source={Photos.pizza} style={styles.image} />
-        <Text>Food</Text>
+        <Text style={styles.text}>Food</Text>
       </TouchableOpacity>
   );
 };

@@ -23,6 +23,10 @@ const styles = ScaledSheet.create({
     width: '90@vs',
     marginBottom: '5@vs',
   },
+
+  text: {
+    color: 'black',
+  }
 });
 
 export default styles;

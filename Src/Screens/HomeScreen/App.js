@@ -10,11 +10,12 @@ import FoodSquareContainer from '../../Components/FoodSquareContainer/FoodSquare
 import RoundedButton from '../../Components/RoundedButton/RoundedButton';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import BottomTabNavigation from '../../Components/BottomTabNavigation/BottomTabNavigation';
+import FoodList from '../../Components/FoodList/FoodList';
 
 function HomeScreen() {
   return (
     <View style={styles.main}>
-      <Text>Main</Text>
+      <FoodList />
     </View>
   );
 }
