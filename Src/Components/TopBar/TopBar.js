@@ -3,9 +3,13 @@ import { Text, View, Image, TouchableOpacity } from 'react-native';
 import styles from './style';
 import Icon from '../../Tools/IconGroup';
 
-const TopBar = () => {
+type Props = {
+    homeStyle: ?void,
+}
+
+const TopBar = (props: Props) => {
     return (
-        <View style={styles.main}>
+        <View style={[styles.main, props.homeStyle]}>
             <TouchableOpacity style={styles.menuButton}>
                 <Image source={Icon.menuIcon} style={styles.image} />
             </TouchableOpacity>

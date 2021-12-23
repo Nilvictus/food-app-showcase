@@ -7,13 +7,14 @@ const styles = ScaledSheet.create({
         alignItems: 'center',
         backgroundColor: '#e3e3e3',
         height: '50@vs',
-        width: '350@vs',
+        width: '320@vs',
         borderRadius: '5@s',
+        alignItems: 'center',
     },
 
     textInput: {
         height: '50@vs',
-        width: '300@vs',
+        width: '250@vs',
         backgroundColor: '#e3e3e3',
         color: '#424242',
         paddingLeft: '10@s',

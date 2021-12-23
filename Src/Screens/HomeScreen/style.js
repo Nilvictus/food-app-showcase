@@ -3,7 +3,6 @@ import { ScaledSheet } from "react-native-size-matters";
 const styles = ScaledSheet.create({
     main: {
         flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'white',
     },
@@ -11,6 +10,14 @@ const styles = ScaledSheet.create({
     iconSize: {
         height: '20@vs',
         width: '20@vs',
+    },
+
+    topBarComponent: {
+        marginTop: '30@vs',
+    },
+
+    searchBarComponent: {
+        marginTop: '10@vs',
     }
 })
 

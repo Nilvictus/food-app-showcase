@@ -17,7 +17,8 @@ import TopBar from '../../Components/TopBar/TopBar';
 function HomeScreen() {
   return (
     <View style={styles.main}>
-      <TopBar />
+      <TopBar homeStyle={styles.topBarComponent}/>
+      <SearchBar homeStyle={styles.searchBarComponent}/>
     </View>
   );
 }
