@@ -3,9 +3,10 @@ import { ScaledSheet } from "react-native-size-matters";
 const styles = ScaledSheet.create({
     mainButton: {
         height: '100@vs',
-        width: '300@vs',
+        width: '100%',
         flexDirection: 'row',
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 1.5,
+        borderBottomColor: '#e6e6e6',
         alignItems: 'center',
     },
 

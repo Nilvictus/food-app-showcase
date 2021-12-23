@@ -3,7 +3,8 @@ import { ScaledSheet } from "react-native-size-matters";
 const styles = ScaledSheet.create({
     quantityContainer: {
         flexDirection: 'row',
-        marginLeft: '40@vs',
+        position: 'absolute',
+        right: 0,
         alignItems: 'center',
     }, 
 

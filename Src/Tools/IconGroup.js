@@ -9,6 +9,7 @@ import { ImageComponent } from 'react-native';
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ //starIcon
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/iyahicon" title="IYAHICON">IYAHICON</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ //menuIcon
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons-premium" title="Roundicons Premium">Roundicons Premium</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ // menuIcon
+/* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ //alarmIcon
 const Icon = {};
 
 Icon.search = require('../Assets/Icons/search.png');
@@ -20,5 +21,6 @@ Icon.removeItem = require('../Assets/Icons/minus.png');
 Icon.rateStar = require('../Assets/Icons/star.png');
 Icon.menuIcon = require('../Assets/Icons/menu.png');
 Icon.cartIcon = require('../Assets/Icons/shopping-cart.png');
+Icon.alarm = require('../Assets/Icons/alarm.png');
 
 export default Icon;

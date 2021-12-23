@@ -28,9 +28,9 @@ const styles = ScaledSheet.create({
         width: '90%',
         flexDirection: 'row',
     },
-    
+
     searchFilterContainer: {
-        marginTop: '10@vs',
+        marginTop: '20@vs',
         height: '30@vs',
         paddingLeft: '12@vs',
         paddingRight: '12@vs',
@@ -41,12 +41,12 @@ const styles = ScaledSheet.create({
 
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 2,
-    
+
         elevation: 1,
     },
 
@@ -62,12 +62,12 @@ const styles = ScaledSheet.create({
 
         shadowColor: '#000',
         shadowOffset: {
-          width: 0,
-          height: 2,
+            width: 0,
+            height: 2,
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-    
+
         elevation: 1,
     },
 
@@ -77,6 +77,68 @@ const styles = ScaledSheet.create({
         alignSelf: 'flex-start',
         marginTop: '20@vs',
         marginLeft: '20@vs',
+        marginBottom: '20@vs',
+    },
+
+    flatList: {
+        paddingTop: '6@vs',
+        width: '90%',
+        paddingRight: '5@vs',
+        paddingLeft: '5@vs',
+    },
+
+    foodSquareContainerComponent: {
+        marginRight: '22@vs',
+        marginBottom: '30@vs',
+    },
+
+    myBasketText: {
+        color: 'black',
+        fontSize: '20@vs',
+        alignSelf: 'flex-start',
+        marginLeft: '20@s',
+        marginBottom: '10@vs',
+    },
+
+    flatList2: {
+        paddingTop: '6@vs',
+    },
+
+    foodListContainer: {
+        height: '60%',
+        width: '90%',
+        marginBottom: '20@vs',
+    },
+
+    buttonTotal: {
+        width: '90%',
+    },
+
+    timeDeliveryContainer: {
+        flexDirection: 'row',
+        alignSelf: 'flex-start',
+        marginLeft: '20@vs',
+        alignItems: 'center',
+        width: '90%',
+        marginBottom: '20@vs',
+    },
+
+    deliveryText: {
+        color: 'black',
+        fontSize: '13@vs',
+    },
+
+    alarmIcon: {
+        height: '15@vs',
+        width: '15@vs',
+        marginRight: '10@vs',
+    },
+
+    minutesText: {
+        color: 'black',
+        fontSize: '15@vs',
+        right: 0,
+        position: 'absolute',
     }
 })
 

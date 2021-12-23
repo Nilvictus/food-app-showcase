@@ -1,7 +1,7 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -13,6 +13,7 @@ import BottomTabNavigation from '../../Components/BottomTabNavigation/BottomTabN
 import FoodList from '../../Components/FoodList/FoodList';
 import Icon from '../../Tools/IconGroup';
 import TopBar from '../../Components/TopBar/TopBar';
+import Photos from '../../Tools/ImageGroup';
 
 const searchFilter = [
   {
@@ -52,7 +53,55 @@ const searchFilter2 = [
   },
 ]
 
-function HomeScreen() {
+const foodData = [
+  {
+    id: 1,
+    name: 'Burger',
+    source: Photos.burger,
+  },
+  {
+    id: 2,
+    name: 'Pizza',
+    source: Photos.pizza,
+  },
+  {
+    id: 3,
+    name: 'Lasagna',
+    source: Photos.lasagna,
+  },
+  {
+    id: 4,
+    name: 'Burger',
+    source: Photos.burger,
+  },
+  {
+    id: 5,
+    name: 'Pizza',
+    source: Photos.pizza,
+  },
+  {
+    id: 6,
+    name: 'Lasagna',
+    source: Photos.lasagna,
+  },
+  {
+    id: 7,
+    name: 'Pizza',
+    source: Photos.pizza,
+  },
+  {
+    id: 8,
+    name: 'Lasagna',
+    source: Photos.lasagna,
+  },
+  {
+    id: 9,
+    name: 'Burger',
+    source: Photos.burger,
+  },
+]
+
+function SearchScreen() {
   return (
     <View style={styles.main}>
       <TopBar homeStyle={styles.topBarComponent} />
@@ -64,22 +113,46 @@ function HomeScreen() {
         {renderSearchFilter2()}
       </View>
       <Text style={styles.favoriteFoodText}>Choose your favorite food</Text>
+      <FlatList
+        style={styles.flatList}
+        data={foodData}
+        renderItem={({ item }) => (
+          <FoodSquareContainer homeStyle={styles.foodSquareContainerComponent} foodDetails={item} />
+        )}
+        numColumns={3}
+        keyExtractor={(item, index) => index.toString()}
+      />
     </View>
   );
 }
 
-function SearchScreen() {
+function HomeScreen() {
   return (
     <View style={styles.main}>
-      <FoodSquareContainer />
     </View>
   )
 }
 
-function FoodScreen() {
+function MyBasket() {
   return (
     <View style={styles.main}>
-      <Text>Food Screen</Text>
+      <TopBar homeStyle={styles.topBarComponent} />
+      <Text style={styles.myBasketText}>My Basket</Text>
+      <View style={styles.foodListContainer}>
+        <FlatList
+          style={styles.flatList2}
+          data={foodData}
+          renderItem={({ item }) => (
+            <FoodList homeStyle={styles.foodSquareContainerComponent} foodDetails={item} />
+          )}
+        />
+      </View>
+      <View style={styles.timeDeliveryContainer}>
+        <Image source={Icon.alarm} style={styles.alarmIcon}/>
+        <Text style={styles.deliveryText}>Time of delivery</Text>
+        <Text style={styles.minutesText}>20-25 minutes</Text>
+      </View>
+      <RoundedButton addedStyle={styles.buttonTotal} />
     </View>
   )
 }
@@ -131,7 +204,7 @@ function App() {
               iconName = focused
                 ? Icon.search
                 : Icon.search;
-            } else if (route.name === 'FoodScreen') {
+            } else if (route.name === 'MyBasket') {
               iconName = focused
                 ? Icon.basket
                 : Icon.basket;
@@ -147,7 +220,7 @@ function App() {
       >
         <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Tab.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
-        <Tab.Screen name="FoodScreen" component={FoodScreen} options={{ headerShown: false }} />
+        <Tab.Screen name="MyBasket" component={MyBasket} options={{ headerShown: false }} />
         <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} />
       </Tab.Navigator>
     </NavigationContainer>

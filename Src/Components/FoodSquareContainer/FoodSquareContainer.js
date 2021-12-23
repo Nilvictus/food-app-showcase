@@ -3,11 +3,16 @@ import {Text, View, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
 import Photos from '../../Tools/ImageGroup';
 
-const FoodSquareContainer = () => {
+type Props = {
+  homeStyle: ?void,
+  foodDetails: ?string,
+}
+
+const FoodSquareContainer = (props: Props) => {
   return (
-      <TouchableOpacity style={styles.main}>
-        <Image source={Photos.pizza} style={styles.image} />
-        <Text style={styles.text}>Food</Text>
+      <TouchableOpacity style={[styles.main, props.homeStyle]}>
+        <Image source={props.foodDetails.source} style={styles.image} />
+        <Text style={styles.text}>{props.foodDetails.name}</Text>
       </TouchableOpacity>
   );
 };
