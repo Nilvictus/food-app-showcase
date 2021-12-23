@@ -11,7 +11,7 @@ const SearchBar = (props: Props) => {
     return(
         <View style={[styles.main, props.homeStyle]}>
             <Image source={Icon.search} style={styles.searchIcon}/>
-            <TextInput style={styles.textInput} placeholder='Search'/>
+            <TextInput style={styles.textInput} placeholder='Search' placeholderTextColor='#a8a8a8'/>
         </View>
     )
 }

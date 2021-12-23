@@ -5,7 +5,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#e3e3e3',
+        backgroundColor: '#ebebeb',
         height: '50@vs',
         width: '320@vs',
         borderRadius: '5@s',
@@ -15,8 +15,8 @@ const styles = ScaledSheet.create({
     textInput: {
         height: '50@vs',
         width: '250@vs',
-        backgroundColor: '#e3e3e3',
-        color: '#424242',
+        backgroundColor: '#ebebeb',
+        color: 'black',
         paddingLeft: '10@s',
     },
 
