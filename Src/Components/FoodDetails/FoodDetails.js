@@ -9,6 +9,7 @@ const FoodDetails = () => {
         <View style={styles.detailsContainer}>
             <Text style={styles.textPrice}>$28.00</Text>
             <Text style={styles.textDescription}>Tasty Italian Piads</Text>
+            <Image source={Icon.rateStar} style={styles.star}/>
         </View>
     )
 }

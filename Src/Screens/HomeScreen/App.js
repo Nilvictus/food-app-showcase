@@ -12,11 +12,12 @@ import SearchBar from '../../Components/SearchBar/SearchBar';
 import BottomTabNavigation from '../../Components/BottomTabNavigation/BottomTabNavigation';
 import FoodList from '../../Components/FoodList/FoodList';
 import Icon from '../../Tools/IconGroup';
+import TopBar from '../../Components/TopBar/TopBar';
 
 function HomeScreen() {
   return (
     <View style={styles.main}>
-      <FoodList />
+      <TopBar />
     </View>
   );
 }

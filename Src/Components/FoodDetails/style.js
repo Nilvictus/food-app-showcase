@@ -16,6 +16,11 @@ const styles = ScaledSheet.create({
         color: 'black',
         fontSize: '10@vs',
     },
+
+    star: {
+        height: '10@vs',
+        width: '10@vs',
+    },
 })
 
 export default styles;
