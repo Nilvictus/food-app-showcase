@@ -154,6 +154,7 @@ function MyBasket() {
       <Text style={styles.myBasketText}>My Basket</Text>
       <View style={styles.foodListContainer}>
         <FlatList
+        showsVerticalScrollIndicator={false}
           style={styles.flatList2}
           data={foodData}
           renderItem={({item}) => (
@@ -164,12 +165,14 @@ function MyBasket() {
           )}
         />
       </View>
-      <View style={styles.timeDeliveryContainer}>
-        <Image source={Icon.alarm} style={styles.alarmIcon} />
-        <Text style={styles.deliveryText}>Time of delivery</Text>
-        <Text style={styles.minutesText}>20-25 minutes</Text>
+      <View style={styles.bottomTotalContainer}>
+        <View style={styles.timeDeliveryContainer}>
+          <Image source={Icon.alarm} style={styles.alarmIcon} />
+          <Text style={styles.deliveryText}>Time of delivery</Text>
+          <Text style={styles.minutesText}>20-25 minutes</Text>
+        </View>
+        <RoundedButton addedStyle={styles.buttonTotal} />
       </View>
-      <RoundedButton addedStyle={styles.buttonTotal} />
     </View>
   );
 }

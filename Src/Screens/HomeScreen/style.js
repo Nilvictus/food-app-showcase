@@ -101,7 +101,7 @@ const styles = ScaledSheet.create({
     },
 
     foodListContainer: {
-        height: '60%',
+        height: '55%',
         width: '90%',
         marginBottom: '20@s',
     },
@@ -116,12 +116,12 @@ const styles = ScaledSheet.create({
         marginLeft: '20@s',
         alignItems: 'center',
         width: '90%',
-        marginBottom: '20@s',
+        marginBottom: '10@s',
     },
 
     deliveryText: {
         color: 'black',
-        fontSize: '13@s',
+        fontSize: '13@mvs',
     },
 
     alarmIcon: {
@@ -132,7 +132,7 @@ const styles = ScaledSheet.create({
 
     minutesText: {
         color: 'black',
-        fontSize: '15@s',
+        fontSize: '15@mvs',
         right: 0,
         position: 'absolute',
     },
@@ -157,6 +157,12 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '100%',
+    },
+
+    bottomTotalContainer: {
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 

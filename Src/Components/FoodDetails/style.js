@@ -7,7 +7,7 @@ const styles = ScaledSheet.create({
     },
 
     textPrice: {
-        color: 'blue',
+        color: '#60d18a',
         fontSize: '17@s',
         fontWeight: 'bold',
     },
