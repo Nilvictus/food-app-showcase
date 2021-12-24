@@ -6,5 +6,6 @@ const Photos = {};
 Photos.pizza = require('../Assets/Images/pizza.jpg');
 Photos.burger = require('../Assets/Images/burger.jpg');
 Photos.lasagna = require('../Assets/Images/lasagna.jpg');
+Photos.ramen = require('../Assets/Images/ramenramen.png');
 
 export default Photos;

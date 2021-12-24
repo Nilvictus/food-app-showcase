@@ -121,7 +121,7 @@ const styles = ScaledSheet.create({
 
     deliveryText: {
         color: 'black',
-        fontSize: '13@mvs',
+        fontSize: '13@ms',
     },
 
     alarmIcon: {
@@ -132,7 +132,7 @@ const styles = ScaledSheet.create({
 
     minutesText: {
         color: 'black',
-        fontSize: '15@mvs',
+        fontSize: '15@ms',
         right: 0,
         position: 'absolute',
     },
@@ -166,7 +166,7 @@ const styles = ScaledSheet.create({
     },
 
     foodText: {
-        fontSize: '25@mvs',
+        fontSize: '23@ms',
         alignSelf: 'flex-start',
         marginLeft: '15@s',
         marginTop: '20@s',
@@ -178,18 +178,20 @@ const styles = ScaledSheet.create({
     },
 
     foodFlatListContainer: {
-        height: '20%',
+        height: '100@s',
+        marginLeft: '15@s',
+        backgroundColor: 'red',
+        marginBottom: '20@s',
     },
 
     popularFoodText: {
-        fontSize: '25@mvs',
+        fontSize: '23@ms',
         color: 'black',
         position: 'absolute',
         left: '15@s',
     }, 
 
     popularFoodContainer: {
-        marginTop: '20@s',
         flexDirection: 'row',
         width: '100%',
         justifyContent: 'center',
@@ -217,7 +219,7 @@ const styles = ScaledSheet.create({
 
     popularFlatListContainer: {
         width: '100%',
-        height: '100%',
+        height: '140@s',
         marginTop: '20@s',
         marginLeft: '25@s',
     },
@@ -229,6 +231,49 @@ const styles = ScaledSheet.create({
     flatListPopularFoods: {
         paddingTop: '10@s',
         width: '95%',
+    },
+
+    insideScrollContainer: {
+        width: '100%',
+    },
+
+    paydayText: {
+        color: 'black',
+        fontSize: '23@ms',
+        alignSelf: 'flex-start',
+        marginTop: '10@s',
+        marginLeft: ''
+    },
+
+    test: {
+        height: '100@s',
+        width: '100%',
+    },
+
+    scrollViewContainer2: {
+        width: '100%',
+        alignItems: 'center',
+        paddingBottom: '20@s',
+    },
+
+    foodOffer: {
+        height: '70@s',
+        width: '90%',
+        backgroundColor: '#60d18a',
+        borderRadius: '5@s',
+        marginTop: '15@s',
+    },
+
+    foodOfferImage: {
+        height: '60@s',
+        width: '60@s',
+        marginRight: '10@s',
+    },
+
+    foodOfferContainer: {
+        marginTop: '20@s',
+        marginLeft: '20@s',
+        flexDirection: 'row',
     }
 
 })
