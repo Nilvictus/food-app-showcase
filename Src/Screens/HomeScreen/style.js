@@ -213,7 +213,24 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+    }, 
+
+    popularFlatListContainer: {
+        width: '100%',
+        height: '100%',
+        marginTop: '20@s',
+        marginLeft: '25@s',
+    },
+
+    popularFoodAddedStyle: {
+        marginRight: '30@s',
+    },
+
+    flatListPopularFoods: {
+        paddingTop: '10@s',
+        width: '95%',
     }
+
 })
 
 export default styles;

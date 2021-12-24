@@ -149,29 +149,39 @@ function HomeScreen() {
     <View style={styles.main}>
       <TopBar homeStyle={styles.topBarComponent} />
       <SearchBar homeStyle={styles.searchBarComponent} />
-      <Text style={styles.foodText}>Food</Text>
-      <View style={styles.foodFlatListContainer}>
-        <FlatList
-          showsHorizontalScrollIndicator={false}
-          style={styles.foodFlatList}
-          horizontal={true}
-          data={foodData}
-          renderItem={({item}) => (
-            <FoodSquareContainer
-              homeStyle={styles.foodSquareContainerComponentHomeScreen}
-              foodDetails={item}
-            />
-          )}
-        />
-      </View>
-      <View style={styles.popularFoodContainer}>
-        <Text style={styles.popularFoodText}>Popular Food</Text>
-        <TouchableOpacity style={styles.viewMoreButton}>
-          <Text style={styles.viewMoreText}>View More</Text>
-          <Image source={Icon.chevron} style={styles.chevronIcon} />
-        </TouchableOpacity>
-      </View>
-      <PopularFood />
+        <Text style={styles.foodText}>Food</Text>
+        <View style={styles.foodFlatListContainer}>
+          <FlatList
+            showsHorizontalScrollIndicator={false}
+            style={styles.foodFlatList}
+            horizontal={true}
+            data={foodData}
+            renderItem={({item}) => (
+              <FoodSquareContainer
+                homeStyle={styles.foodSquareContainerComponentHomeScreen}
+                foodDetails={item}
+              />
+            )}
+          />
+        </View>
+        <View style={styles.popularFoodContainer}>
+          <Text style={styles.popularFoodText}>Popular Food</Text>
+          <TouchableOpacity style={styles.viewMoreButton}>
+            <Text style={styles.viewMoreText}>View More</Text>
+            <Image source={Icon.chevron} style={styles.chevronIcon} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.popularFlatListContainer}>
+          <FlatList
+            style={styles.flatListPopularFoods}
+            data={foodData}
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({item}) => (
+              <PopularFood addedStyle={styles.popularFoodAddedStyle} />
+            )}
+          />
+        </View>
     </View>
   );
 }

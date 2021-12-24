@@ -3,6 +3,7 @@ import {ScaledSheet} from 'react-native-size-matters';
 const styles = ScaledSheet.create({
   main: {
     paddingBottom: '10@s',
+    height: '120@s',
     width: '90@s',
     alignItems: 'center',
     backgroundColor: 'white',
