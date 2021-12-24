@@ -8,16 +8,16 @@ const styles = ScaledSheet.create({
     },
 
     iconSize: {
-        height: '20@vs',
-        width: '20@vs',
+        height: '20@s',
+        width: '20@s',
     },
 
     topBarComponent: {
-        marginTop: '30@vs',
+        marginTop: '30@s',
     },
 
     searchBarComponent: {
-        marginTop: '10@vs',
+        marginTop: '10@s',
     },
 
     text: {
@@ -30,84 +30,80 @@ const styles = ScaledSheet.create({
     },
 
     searchFilterContainer: {
-        marginTop: '20@vs',
-        height: '30@vs',
-        paddingLeft: '12@vs',
-        paddingRight: '12@vs',
-        marginRight: '10@vs',
+        marginTop: '20@s',
+        height: '30@s',
+        paddingLeft: '12@s',
+        paddingRight: '12@s',
+        marginRight: '10@s',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '10@s',
+        borderWidth: 0.5,
 
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 2,
+        // shadowColor: '#000',
+        // shadowOffset: {
+        //     width: 0,
+        //     height: 21,
+        // },
+        // shadowOpacity: 0.25,
+        // shadowRadius: 2,
 
-        elevation: 1,
+        // elevation: 1,
     },
 
     searchFilterContainer2: {
-        marginTop: '10@vs',
-        height: '30@vs',
-        paddingLeft: '12@vs',
-        paddingRight: '12@vs',
-        marginLeft: '10@vs',
+        marginTop: '10@s',
+        height: '30@s',
+        paddingLeft: '12@s',
+        paddingRight: '12@s',
+        marginLeft: '10@s',
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '10@s',
+        borderWidth: 0.5,
 
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
+        // shadowColor: '#000',
+        // shadowOffset: {
+        //     width: 0,
+        //     height: 2,
+        // },
+        // shadowOpacity: 0.25,
+        // shadowRadius: 3.84,
 
-        elevation: 1,
+        // elevation: 1,
     },
 
     favoriteFoodText: {
         color: 'black',
-        fontSize: '20@vs',
+        fontSize: '20@s',
         alignSelf: 'flex-start',
-        marginTop: '20@vs',
-        marginLeft: '20@vs',
-        marginBottom: '20@vs',
-    },
-
-    flatList: {
-        paddingTop: '6@vs',
-        width: '90%',
-        paddingRight: '5@vs',
-        paddingLeft: '5@vs',
+        marginTop: '10@s',
+        marginLeft: '10@s',
+        marginBottom: '10@s',
     },
 
     foodSquareContainerComponent: {
-        marginRight: '22@vs',
-        marginBottom: '30@vs',
+        marginBottom: '30@s',
+        margin: '10@s',
+        marginTop: '3@s',
     },
 
     myBasketText: {
         color: 'black',
-        fontSize: '20@vs',
+        fontSize: '20@s',
         alignSelf: 'flex-start',
         marginLeft: '20@s',
-        marginBottom: '10@vs',
+        marginBottom: '10@s',
     },
 
     flatList2: {
-        paddingTop: '6@vs',
+        paddingTop: '6@s',
     },
 
     foodListContainer: {
         height: '60%',
         width: '90%',
-        marginBottom: '20@vs',
+        marginBottom: '20@s',
     },
 
     buttonTotal: {
@@ -117,28 +113,50 @@ const styles = ScaledSheet.create({
     timeDeliveryContainer: {
         flexDirection: 'row',
         alignSelf: 'flex-start',
-        marginLeft: '20@vs',
+        marginLeft: '20@s',
         alignItems: 'center',
         width: '90%',
-        marginBottom: '20@vs',
+        marginBottom: '20@s',
     },
 
     deliveryText: {
         color: 'black',
-        fontSize: '13@vs',
+        fontSize: '13@s',
     },
 
     alarmIcon: {
-        height: '15@vs',
-        width: '15@vs',
-        marginRight: '10@vs',
+        height: '15@s',
+        width: '15@s',
+        marginRight: '10@s',
     },
 
     minutesText: {
         color: 'black',
-        fontSize: '15@vs',
+        fontSize: '15@s',
         right: 0,
         position: 'absolute',
+    },
+
+    renderSearch: {
+        width: '90%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    scrollView: {
+
+    },
+
+    scrollViewContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+    },
+
+    flatListContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
     }
 })
 

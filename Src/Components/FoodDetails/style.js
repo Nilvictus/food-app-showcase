@@ -3,23 +3,23 @@ import { ScaledSheet } from "react-native-size-matters";
 const styles = ScaledSheet.create({
     detailsContainer: {
         justifyContent: 'center',
-        marginLeft: '15@vs',
+        marginLeft: '15@s',
     },
 
     textPrice: {
         color: 'blue',
-        fontSize: '17@vs',
+        fontSize: '17@s',
         fontWeight: 'bold',
     },
 
     textDescription: {
         color: 'black',
-        fontSize: '10@vs',
+        fontSize: '10@s',
     },
 
     star: {
-        height: '10@vs',
-        width: '10@vs',
+        height: '10@s',
+        width: '10@s',
     },
 })
 

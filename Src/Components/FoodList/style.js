@@ -2,7 +2,7 @@ import { ScaledSheet } from "react-native-size-matters";
 
 const styles = ScaledSheet.create({
     mainButton: {
-        height: '100@vs',
+        height: '100@s',
         width: '100%',
         flexDirection: 'row',
         borderBottomWidth: 1.5,
@@ -11,8 +11,8 @@ const styles = ScaledSheet.create({
     },
 
     image: {
-        height: '70@vs',
-        width: '70@vs',
+        height: '70@s',
+        width: '70@s',
     }, 
 })
 

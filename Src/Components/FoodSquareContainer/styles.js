@@ -2,8 +2,8 @@ import {ScaledSheet} from 'react-native-size-matters';
 
 const styles = ScaledSheet.create({
   main: {
-    height: '100@vs',
-    width: '90@vs',
+    height: '100@s',
+    width: '90@s',
     backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
@@ -19,9 +19,9 @@ const styles = ScaledSheet.create({
   },
 
   image: {
-    height: '70@vs',
-    width: '70@vs',
-    marginBottom: '5@vs',
+    height: '70@s',
+    width: '70@s',
+    marginBottom: '5@s',
   },
 
   text: {

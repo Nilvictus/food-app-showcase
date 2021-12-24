@@ -6,24 +6,25 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#ebebeb',
-        height: '50@vs',
-        width: '320@vs',
+        height: '50@s',
+        width: '320@s',
         borderRadius: '5@s',
         alignItems: 'center',
     },
 
     textInput: {
-        height: '50@vs',
-        width: '250@vs',
+        height: '50@s',
+        width: '250@s',
         backgroundColor: '#ebebeb',
         color: 'black',
         paddingLeft: '10@s',
     },
 
     searchIcon: {
-        height: '30@vs',
-        width: '30@vs',
+        height: '18@s',
+        width: '18@s',
         marginLeft: '10@s',
+        tintColor: '#c4c4c4',
     }
 })
 

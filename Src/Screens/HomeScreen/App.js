@@ -1,10 +1,17 @@
 // In App.js in a new project
 
 import * as React from 'react';
-import { View, Text, Image, TouchableOpacity, FlatList } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  FlatList,
+  ScrollView,
+} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import styles from './style';
 import FoodSquareContainer from '../../Components/FoodSquareContainer/FoodSquareContainer';
 import RoundedButton from '../../Components/RoundedButton/RoundedButton';
@@ -32,7 +39,7 @@ const searchFilter = [
     id: 4,
     name: 'Lasagna',
   },
-]
+];
 
 const searchFilter2 = [
   {
@@ -51,7 +58,7 @@ const searchFilter2 = [
     id: 4,
     name: 'Coffee',
   },
-]
+];
 
 const foodData = [
   {
@@ -99,38 +106,45 @@ const foodData = [
     name: 'Burger',
     source: Photos.burger,
   },
-]
+];
 
 function SearchScreen() {
   return (
     <View style={styles.main}>
       <TopBar homeStyle={styles.topBarComponent} />
-      <SearchBar homeStyle={styles.searchBarComponent} />
-      <View style={styles.searchFilterContainerMain}>
-        {renderSearchFilter()}
-      </View>
-      <View style={styles.searchFilterContainerMain}>
-        {renderSearchFilter2()}
-      </View>
-      <Text style={styles.favoriteFoodText}>Choose your favorite food</Text>
-      <FlatList
-        style={styles.flatList}
-        data={foodData}
-        renderItem={({ item }) => (
-          <FoodSquareContainer homeStyle={styles.foodSquareContainerComponent} foodDetails={item} />
-        )}
-        numColumns={3}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.scrollViewContainer}>
+          <SearchBar homeStyle={styles.searchBarComponent} />
+          <View style={styles.searchFilterContainerMain}>
+            {renderSearchFilter()}
+          </View>
+          <View style={styles.searchFilterContainerMain}>
+            {renderSearchFilter2()}
+          </View>
+          <Text style={styles.favoriteFoodText}>Choose your favorite food</Text>
+          <View style={styles.flatListContainer}>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              style={styles.flatList}
+              data={foodData}
+              renderItem={({item}) => (
+                <FoodSquareContainer
+                  homeStyle={styles.foodSquareContainerComponent}
+                  foodDetails={item}
+                />
+              )}
+              numColumns={3}
+              keyExtractor={(item, index) => index.toString()}
+            />
+          </View>
+        </View>
+      </ScrollView>
     </View>
   );
 }
 
 function HomeScreen() {
-  return (
-    <View style={styles.main}>
-    </View>
-  )
+  return <View style={styles.main}></View>;
 }
 
 function MyBasket() {
@@ -142,19 +156,22 @@ function MyBasket() {
         <FlatList
           style={styles.flatList2}
           data={foodData}
-          renderItem={({ item }) => (
-            <FoodList homeStyle={styles.foodSquareContainerComponent} foodDetails={item} />
+          renderItem={({item}) => (
+            <FoodList
+              homeStyle={styles.foodSquareContainerComponent}
+              foodDetails={item}
+            />
           )}
         />
       </View>
       <View style={styles.timeDeliveryContainer}>
-        <Image source={Icon.alarm} style={styles.alarmIcon}/>
+        <Image source={Icon.alarm} style={styles.alarmIcon} />
         <Text style={styles.deliveryText}>Time of delivery</Text>
         <Text style={styles.minutesText}>20-25 minutes</Text>
       </View>
       <RoundedButton addedStyle={styles.buttonTotal} />
     </View>
-  )
+  );
 }
 
 function ProfileScreen() {
@@ -162,28 +179,28 @@ function ProfileScreen() {
     <View style={styles.main}>
       <Text>Profile Screen</Text>
     </View>
-  )
+  );
 }
 
 const renderSearchFilter = () => {
-  return searchFilter.map((item) => {
+  return searchFilter.map(item => {
     return (
       <TouchableOpacity style={styles.searchFilterContainer}>
         <Text style={styles.text}>{item.name}</Text>
       </TouchableOpacity>
-    )
-  })
-}
+    );
+  });
+};
 
 const renderSearchFilter2 = () => {
-  return searchFilter2.map((item) => {
+  return searchFilter2.map(item => {
     return (
       <TouchableOpacity style={styles.searchFilterContainer2}>
         <Text style={styles.text}>{item.name}</Text>
       </TouchableOpacity>
-    )
-  })
-}
+    );
+  });
+};
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -192,36 +209,43 @@ function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+        screenOptions={({route}) => ({
+          tabBarIcon: ({focused, color, size}) => {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = focused
-                ? Icon.house
-                : Icon.house;
+              iconName = focused ? Icon.house : Icon.house;
             } else if (route.name === 'Search') {
-              iconName = focused
-                ? Icon.search
-                : Icon.search;
+              iconName = focused ? Icon.search : Icon.search;
             } else if (route.name === 'MyBasket') {
-              iconName = focused
-                ? Icon.basket
-                : Icon.basket;
+              iconName = focused ? Icon.basket : Icon.basket;
             } else {
-              iconName = focused
-                ? Icon.profile
-                : Icon.profile;
+              iconName = focused ? Icon.profile : Icon.profile;
             }
 
             return <Image source={iconName} style={styles.iconSize} />;
-          }
-        })}
-      >
-        <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
-        <Tab.Screen name="Search" component={SearchScreen} options={{ headerShown: false }} />
-        <Tab.Screen name="MyBasket" component={MyBasket} options={{ headerShown: false }} />
-        <Tab.Screen name="ProfileScreen" component={ProfileScreen} options={{ headerShown: false }} />
+          },
+        })}>
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{headerShown: false}}
+        />
+        <Tab.Screen
+          name="Search"
+          component={SearchScreen}
+          options={{headerShown: false}}
+        />
+        <Tab.Screen
+          name="MyBasket"
+          component={MyBasket}
+          options={{headerShown: false}}
+        />
+        <Tab.Screen
+          name="ProfileScreen"
+          component={ProfileScreen}
+          options={{headerShown: false}}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

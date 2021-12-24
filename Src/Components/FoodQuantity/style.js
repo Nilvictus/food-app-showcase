@@ -9,19 +9,19 @@ const styles = ScaledSheet.create({
     }, 
 
     removeIcon: {
-        height: '25@vs',
-        width: '25@vs',
+        height: '25@s',
+        width: '25@s',
     }, 
 
     addIcon: {
-        height: '25@vs',
-        width: '25@vs',
-        marginLeft: '10@vs',
+        height: '25@s',
+        width: '25@s',
+        marginLeft: '10@s',
     },
 
     quantityNumber: {
         color: 'black',
-        marginLeft: '10@vs',
+        marginLeft: '10@s',
     }
 })
 
