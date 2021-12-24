@@ -21,6 +21,7 @@ import FoodList from '../../Components/FoodList/FoodList';
 import Icon from '../../Tools/IconGroup';
 import TopBar from '../../Components/TopBar/TopBar';
 import Photos from '../../Tools/ImageGroup';
+import PopularFood from '../../Components/PopularFood/PopularFood';
 
 const searchFilter = [
   {
@@ -144,7 +145,35 @@ function SearchScreen() {
 }
 
 function HomeScreen() {
-  return <View style={styles.main}></View>;
+  return (
+    <View style={styles.main}>
+      <TopBar homeStyle={styles.topBarComponent} />
+      <SearchBar homeStyle={styles.searchBarComponent} />
+      <Text style={styles.foodText}>Food</Text>
+      <View style={styles.foodFlatListContainer}>
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          style={styles.foodFlatList}
+          horizontal={true}
+          data={foodData}
+          renderItem={({item}) => (
+            <FoodSquareContainer
+              homeStyle={styles.foodSquareContainerComponentHomeScreen}
+              foodDetails={item}
+            />
+          )}
+        />
+      </View>
+      <View style={styles.popularFoodContainer}>
+        <Text style={styles.popularFoodText}>Popular Food</Text>
+        <TouchableOpacity style={styles.viewMoreButton}>
+          <Text style={styles.viewMoreText}>View More</Text>
+          <Image source={Icon.chevron} style={styles.chevronIcon} />
+        </TouchableOpacity>
+      </View>
+      <PopularFood />
+    </View>
+  );
 }
 
 function MyBasket() {
@@ -154,7 +183,7 @@ function MyBasket() {
       <Text style={styles.myBasketText}>My Basket</Text>
       <View style={styles.foodListContainer}>
         <FlatList
-        showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           style={styles.flatList2}
           data={foodData}
           renderItem={({item}) => (

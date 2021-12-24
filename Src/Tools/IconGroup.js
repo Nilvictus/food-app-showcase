@@ -10,6 +10,7 @@ import { ImageComponent } from 'react-native';
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/iyahicon" title="IYAHICON">IYAHICON</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ //menuIcon
 /* <div>Icons made by <a href="https://www.flaticon.com/authors/roundicons-premium" title="Roundicons Premium">Roundicons Premium</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ // menuIcon
 /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ //alarmIcon
+/* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>*/ //chevronIcon
 const Icon = {};
 
 Icon.search = require('../Assets/Icons/search.png');
@@ -22,5 +23,6 @@ Icon.rateStar = require('../Assets/Icons/star.png');
 Icon.menuIcon = require('../Assets/Icons/menu.png');
 Icon.cartIcon = require('../Assets/Icons/shopping-cart.png');
 Icon.alarm = require('../Assets/Icons/alarm.png');
+Icon.chevron = require('../Assets/Icons/chevron.png')
 
 export default Icon;

@@ -6,6 +6,7 @@ import Photos from '../../Tools/ImageGroup';
 type Props = {
   homeStyle: ?void,
   foodDetails: ?string,
+  imgSource: ?String,
 }
 
 const FoodSquareContainer = (props: Props) => {

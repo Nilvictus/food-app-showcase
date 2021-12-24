@@ -163,6 +163,56 @@ const styles = ScaledSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
+    },
+
+    foodText: {
+        fontSize: '25@mvs',
+        alignSelf: 'flex-start',
+        marginLeft: '15@s',
+        marginTop: '20@s',
+        color: 'black',
+    },
+
+    foodSquareContainerComponentHomeScreen: {
+        elevation: 0,
+    },
+
+    foodFlatListContainer: {
+        height: '20%',
+    },
+
+    popularFoodText: {
+        fontSize: '25@mvs',
+        color: 'black',
+        position: 'absolute',
+        left: '15@s',
+    }, 
+
+    popularFoodContainer: {
+        marginTop: '20@s',
+        flexDirection: 'row',
+        width: '100%',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    viewMoreText: {
+        color: 'black',
+        marginRight: '2@s',
+    },
+
+    chevronIcon: {
+        height: '10@s',
+        width: '10@s',
+        marginTop: '1@s',
+    },
+
+    viewMoreButton: {
+        position: 'absolute',
+        right: '15@s',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 
