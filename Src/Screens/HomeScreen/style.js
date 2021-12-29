@@ -180,7 +180,7 @@ const styles = ScaledSheet.create({
     foodFlatListContainer: {
         height: '100@s',
         marginLeft: '15@s',
-        marginBottom: '20@s',
+        marginBottom: '40@s',
     },
 
     popularFoodText: {
