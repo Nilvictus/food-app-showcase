@@ -145,6 +145,11 @@ function SearchScreen() {
 }
 
 function HomeScreen() {
+  var myloop = [];
+  for (let i = 0; i < 5; i++) {
+    myloop.push(<Image source={Icon.rateStar} style={styles.rateStar} />);
+  }
+
   return (
     <View style={styles.main}>
       <TopBar homeStyle={styles.topBarComponent} />
@@ -190,6 +195,12 @@ function HomeScreen() {
             <View style={styles.foodOfferContainer}>
               <Image source={Photos.ramen} style={styles.foodOfferImage} />
               <Image source={Photos.ramen} style={styles.foodOfferImage} />
+              <View style={styles.offerTextContainer}>
+                <Text style={styles.offerText}>
+                  Free salads{'\n'}for every couple!
+                </Text>
+                <View style={styles.starLoopContainer}>{myloop}</View>
+              </View>
             </View>
           </View>
         </View>

@@ -180,7 +180,6 @@ const styles = ScaledSheet.create({
     foodFlatListContainer: {
         height: '100@s',
         marginLeft: '15@s',
-        backgroundColor: 'red',
         marginBottom: '20@s',
     },
 
@@ -273,6 +272,28 @@ const styles = ScaledSheet.create({
     foodOfferContainer: {
         marginTop: '20@s',
         marginLeft: '20@s',
+        flexDirection: 'row',
+    },
+
+    offerTextContainer: {
+        justifyContent: 'center',
+        height: '117%',
+        width: '50%',
+        marginTop: '-20@s',
+    },
+
+    offerText: {
+        color: 'white',
+        fontSize: '12@s',
+    },
+
+    rateStar: {
+        marginTop: '1@s',
+        height: '10@s',
+        width: '10@s',
+    },
+
+    starLoopContainer: {
         flexDirection: 'row',
     }
 
