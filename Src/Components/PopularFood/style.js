@@ -34,7 +34,7 @@ const styles = ScaledSheet.create({
     width: '10@s',
   },
 
-  addedStyle: {
+  style: {
     height: '13@s',
     width: '50@s',
     position: 'absolute',

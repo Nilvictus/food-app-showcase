@@ -189,7 +189,7 @@ function HomeScreen() {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               renderItem={({item}) => (
-                <PopularFood addedStyle={styles.popularFoodAddedStyle} />
+                <PopularFood style={styles.popularFoodstyle} />
               )}
             />
           </View>
@@ -236,7 +236,7 @@ function MyBasket() {
           <Text style={styles.deliveryText}>Time of delivery</Text>
           <Text style={styles.minutesText}>20-25 minutes</Text>
         </View>
-        <RoundedButton addedStyle={styles.buttonTotal} />
+        <RoundedButton style={styles.buttonTotal} text={"Total  $155.96"}/>
       </View>
     </View>
   );

@@ -101,9 +101,8 @@ const styles = ScaledSheet.create({
     },
 
     foodListContainer: {
-        height: '55%',
+        height: '65%',
         width: '90%',
-        marginBottom: '20@s',
     },
 
     buttonTotal: {
@@ -223,7 +222,7 @@ const styles = ScaledSheet.create({
         marginLeft: '25@s',
     },
 
-    popularFoodAddedStyle: {
+    popularFoodstyle: {
         marginRight: '30@s',
     },
 

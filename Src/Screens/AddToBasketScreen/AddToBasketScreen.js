@@ -30,7 +30,7 @@ const AddToBasketScreen = () => {
             Italian-style street warp with pancetta (bacon), romaine, bruschetta
             tomatoes, creamy parmesan
           </Text>
-          <RoundedButton addedStyle={styles.roundedButton} text={"Add to Basket"}/>
+          <RoundedButton style={styles.roundedButton} text={"Add to Basket"}/>
         </View>
       </ScrollView>
     </View>

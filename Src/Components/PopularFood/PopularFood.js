@@ -6,16 +6,16 @@ import Icon from '../../Tools/IconGroup';
 import RoundedButton from '../RoundedButton/RoundedButton';
 
 type Props = {
-    addedStyle: ?void,
+    style: ?void,
 }
 
 const PopularFood = (props: Props) => {
     return(
-        <View style={[styles.main, props.addedStyle]}>
+        <View style={[styles.main, props.style]}>
             <Image source={Photos.pizza} style={styles.image} />
             <Text style={styles.foodText}>Italian Piada</Text>
             <Image source={Icon.rateStar} style={styles.rateStar}/>
-            <RoundedButton text={'See more  >'} addedStyle={styles.addedStyle} textStyle={styles.textStyle}/>
+            <RoundedButton text={'See more  >'} style={styles.style} textStyle={styles.textStyle}/>
         </View>
     )
 }
