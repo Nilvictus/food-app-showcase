@@ -279,6 +279,7 @@ const styles = ScaledSheet.create({
         height: '117%',
         width: '50%',
         marginTop: '-20@s',
+        marginLeft: '10@s'
     },
 
     offerText: {
