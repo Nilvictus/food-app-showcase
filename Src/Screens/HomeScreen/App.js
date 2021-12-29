@@ -22,6 +22,9 @@ import Icon from '../../Tools/IconGroup';
 import TopBar from '../../Components/TopBar/TopBar';
 import Photos from '../../Tools/ImageGroup';
 import PopularFood from '../../Components/PopularFood/PopularFood';
+import FoodDetails from '../../Components/FoodDetails/FoodDetails';
+import FoodQuantity from '../../Components/FoodQuantity/FoodQuantity';
+import AddToBasketScreen from '../AddToBasketScreen/AddToBasketScreen';
 
 const searchFilter = [
   {
@@ -242,7 +245,7 @@ function MyBasket() {
 function ProfileScreen() {
   return (
     <View style={styles.main}>
-      <Text>Profile Screen</Text>
+      <AddToBasketScreen />
     </View>
   );
 }

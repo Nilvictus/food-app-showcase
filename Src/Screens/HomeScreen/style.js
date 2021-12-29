@@ -13,7 +13,7 @@ const styles = ScaledSheet.create({
     },
 
     topBarComponent: {
-        marginTop: '30@s',
+       
     },
 
     searchBarComponent: {
