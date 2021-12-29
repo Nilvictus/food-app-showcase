@@ -283,36 +283,40 @@ function App() {
 
             if (route.name === 'Home') {
               iconName = focused ? Icon.house : Icon.house;
+              return <Image source={iconName} style={focused ? styles.homeFocused : styles.homeNotFocused} />;
             } else if (route.name === 'Search') {
               iconName = focused ? Icon.search : Icon.search;
+              return <Image source={iconName} style={focused ? styles.searchFocused : styles.searchNotFocused} />;
             } else if (route.name === 'MyBasket') {
               iconName = focused ? Icon.basket : Icon.basket;
+              return <Image source={iconName} style={focused ? styles.basketFocused : styles.basketNotFocused} />;
             } else {
               iconName = focused ? Icon.profile : Icon.profile;
+              return <Image source={iconName} style={focused ? styles.profileFocused : styles.profileNotFocused} />;
             }
 
-            return <Image source={iconName} style={styles.iconSize} />;
+            
           },
         })}>
         <Tab.Screen
           name="Home"
           component={HomeScreen}
-          options={{headerShown: false}}
+          options={{headerShown: false, tabBarShowLabel: false}}
         />
         <Tab.Screen
           name="Search"
           component={SearchScreen}
-          options={{headerShown: false}}
+          options={{headerShown: false, tabBarShowLabel: false}}
         />
         <Tab.Screen
           name="MyBasket"
           component={MyBasket}
-          options={{headerShown: false}}
+          options={{headerShown: false, tabBarShowLabel: false}}
         />
         <Tab.Screen
           name="ProfileScreen"
           component={ProfileScreen}
-          options={{headerShown: false}}
+          options={{headerShown: false, tabBarShowLabel: false}}
         />
       </Tab.Navigator>
     </NavigationContainer>

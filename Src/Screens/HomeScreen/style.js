@@ -7,9 +7,53 @@ const styles = ScaledSheet.create({
         backgroundColor: 'white',
     },
 
-    iconSize: {
+    homeFocused: {
+        height: '17@s',
+        width: '17@s',
+        tintColor: '#60d18a',
+    },
+
+    
+    homeNotFocused: {
+        height: '17@s',
+        width: '17@s',
+        tintColor: 'gray',
+    },
+
+    searchFocused: {
         height: '20@s',
         width: '20@s',
+        tintColor: '#60d18a',  
+    },
+
+    searchNotFocused: {
+        height: '20@s',
+        width: '20@s',
+        tintColor: 'gray',  
+    },
+
+    basketFocused: {
+        height: '28@s',
+        width: '28@s',
+        tintColor: '#60d18a',  
+    },
+
+    basketNotFocused: {
+        height: '28@s',
+        width: '28@s',
+        tintColor: 'gray',  
+    },
+
+    profileFocused: {
+        height: '23@s',
+        width: '23@s',
+        tintColor: '#60d18a',  
+    },
+
+    profileNotFocused: {
+        height: '23@s',
+        width: '23@s',
+        tintColor: 'gray',
     },
 
     topBarComponent: {
