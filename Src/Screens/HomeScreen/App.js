@@ -1,6 +1,6 @@
 // In App.js in a new project
 
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -26,6 +26,13 @@ import PopularFood from '../../Components/PopularFood/PopularFood';
 import FoodDetails from '../../Components/FoodDetails/FoodDetails';
 import FoodQuantity from '../../Components/FoodQuantity/FoodQuantity';
 import AddToBasketScreen from '../AddToBasketScreen/AddToBasketScreen';
+import {Provider} from 'react-redux';
+import configureStore from '../../Services/Redux/Store/ConfigureStore';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  setFoodData,
+  setTotalPrice,
+} from '../../Services/Redux/Actions/Index';
 
 const searchFilter = [
   {
@@ -70,55 +77,55 @@ const foodData = [
     id: 1,
     name: 'Burger',
     source: Photos.burger,
-    price: "28.00"
+    price: '28.00',
   },
   {
     id: 2,
     name: 'Pizza',
     source: Photos.pizza,
-    price: "38.00"
+    price: '38.00',
   },
   {
     id: 3,
     name: 'Lasagna',
     source: Photos.lasagna,
-    price: "18.00"
+    price: '18.00',
   },
   {
     id: 4,
     name: 'Burger',
     source: Photos.burger,
-    price: "23.00"
+    price: '23.00',
   },
   {
     id: 5,
     name: 'Pizza',
     source: Photos.pizza,
-    price: "67.00"
+    price: '67.00',
   },
   {
     id: 6,
     name: 'Lasagna',
     source: Photos.lasagna,
-    price: "13.00"
+    price: '13.00',
   },
   {
     id: 7,
     name: 'Pizza',
     source: Photos.pizza,
-    price: "43.00"
+    price: '43.00',
   },
   {
     id: 8,
     name: 'Lasagna',
     source: Photos.lasagna,
-    price: "46.00"
+    price: '46.00',
   },
   {
     id: 9,
     name: 'Burger',
     source: Photos.burger,
-    price: "29.00"
+    price: '29.00',
   },
 ];
 
@@ -181,7 +188,7 @@ function HomeScreen({navigation}) {
     myloop.push(<Image source={Icon.rateStar} style={styles.rateStar} />);
   }
 
-  const openAddBasketScreen = (item) => {
+  const openAddBasketScreen = item => {
     navigation.navigate('AddToBasketScreen', {
       detailsOfFood: item,
     });
@@ -205,7 +212,7 @@ function HomeScreen({navigation}) {
                 <FoodSquareContainer
                   homeStyle={styles.foodSquareContainerComponentHomeScreen}
                   foodDetails={item}
-                  onPress={()=>openAddBasketScreen(item)}
+                  onPress={() => openAddBasketScreen(item)}
                 />
               )}
             />
@@ -227,7 +234,7 @@ function HomeScreen({navigation}) {
                 <PopularFood
                   item={item}
                   style={styles.popularFoodstyle}
-                  onPress={()=>openAddBasketScreen(item)}
+                  onPress={() => openAddBasketScreen(item)}
                 />
               )}
             />
@@ -252,6 +259,31 @@ function HomeScreen({navigation}) {
 }
 
 function MyBasket() {
+  // const [totalPrice, setTotalPrice] = useState(0);
+  const dispatch = useDispatch();
+
+  const foodDataRedux = useSelector(state => state.foodReducer.foodTotalPrice);
+
+  useEffect(() => {
+    calculateTotal();
+  }, []);
+
+  const calculateTotal = x => {
+    let total = 0;
+    foodData.map(item => {
+      total = total + parseInt(item.price);
+    });
+
+    // setTotalPrice(total);
+    dispatch(setTotalPrice(total));
+  };
+
+  const addCalculate = x => {
+    alert('yow');
+    let total = totalPrice + x;
+    dispatch(setTotalPrice(total));
+  };
+
   return (
     <View style={styles.main}>
       <TopBar homeStyle={styles.topBarComponent} />
@@ -265,6 +297,7 @@ function MyBasket() {
             <FoodList
               homeStyle={styles.foodSquareContainerComponent}
               foodDetails={item}
+              calculate={() => addCalculate(item.price)}
             />
           )}
         />
@@ -275,7 +308,10 @@ function MyBasket() {
           <Text style={styles.deliveryText}>Time of delivery</Text>
           <Text style={styles.minutesText}>20-25 minutes</Text>
         </View>
-        <RoundedButton style={styles.buttonTotal} text={'Total  $155.96'} />
+        <RoundedButton
+          style={styles.buttonTotal}
+          text={'Total $' + foodDataRedux}
+        />
       </View>
     </View>
   );
@@ -311,91 +347,80 @@ const renderSearchFilter2 = () => {
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
-
-function Nav() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="AddToBasketScreen"
-          component={AddToBasketScreen}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-}
+const store = configureStore();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
-            let iconName;
+    <Provider store={store}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={({route}) => ({
+            tabBarIcon: ({focused, color, size}) => {
+              let iconName;
 
-            if (route.name === 'Home') {
-              iconName = focused ? Icon.house : Icon.house;
-              return (
-                <Image
-                  source={iconName}
-                  style={focused ? styles.homeFocused : styles.homeNotFocused}
-                />
-              );
-            } else if (route.name === 'Search') {
-              iconName = focused ? Icon.search : Icon.search;
-              return (
-                <Image
-                  source={iconName}
-                  style={
-                    focused ? styles.searchFocused : styles.searchNotFocused
-                  }
-                />
-              );
-            } else if (route.name === 'MyBasket') {
-              iconName = focused ? Icon.basket : Icon.basket;
-              return (
-                <Image
-                  source={iconName}
-                  style={
-                    focused ? styles.basketFocused : styles.basketNotFocused
-                  }
-                />
-              );
-            } else {
-              iconName = focused ? Icon.profile : Icon.profile;
-              return (
-                <Image
-                  source={iconName}
-                  style={
-                    focused ? styles.profileFocused : styles.profileNotFocused
-                  }
-                />
-              );
-            }
-          },
-        })}>
-        <Tab.Screen
-          name="Home"
-          component={HomeStackScreen}
-          options={{headerShown: false, tabBarShowLabel: false}}></Tab.Screen>
-        <Tab.Screen
-          name="Search"
-          component={SearchScreen}
-          options={{headerShown: false, tabBarShowLabel: false}}
-        />
-        <Tab.Screen
-          name="MyBasket"
-          component={MyBasket}
-          options={{headerShown: false, tabBarShowLabel: false}}
-        />
-        <Tab.Screen
-          name="ProfileScreen"
-          component={ProfileScreen}
-          options={{headerShown: false, tabBarShowLabel: false}}
-        />
-      </Tab.Navigator>
-    </NavigationContainer>
+              if (route.name === 'Home') {
+                iconName = focused ? Icon.house : Icon.house;
+                return (
+                  <Image
+                    source={iconName}
+                    style={focused ? styles.homeFocused : styles.homeNotFocused}
+                  />
+                );
+              } else if (route.name === 'Search') {
+                iconName = focused ? Icon.search : Icon.search;
+                return (
+                  <Image
+                    source={iconName}
+                    style={
+                      focused ? styles.searchFocused : styles.searchNotFocused
+                    }
+                  />
+                );
+              } else if (route.name === 'MyBasket') {
+                iconName = focused ? Icon.basket : Icon.basket;
+                return (
+                  <Image
+                    source={iconName}
+                    style={
+                      focused ? styles.basketFocused : styles.basketNotFocused
+                    }
+                  />
+                );
+              } else {
+                iconName = focused ? Icon.profile : Icon.profile;
+                return (
+                  <Image
+                    source={iconName}
+                    style={
+                      focused ? styles.profileFocused : styles.profileNotFocused
+                    }
+                  />
+                );
+              }
+            },
+          })}>
+          <Tab.Screen
+            name="Home"
+            component={HomeStackScreen}
+            options={{headerShown: false, tabBarShowLabel: false}}></Tab.Screen>
+          <Tab.Screen
+            name="Search"
+            component={SearchScreen}
+            options={{headerShown: false, tabBarShowLabel: false}}
+          />
+          <Tab.Screen
+            name="MyBasket"
+            component={MyBasket}
+            options={{headerShown: false, tabBarShowLabel: false}}
+          />
+          <Tab.Screen
+            name="ProfileScreen"
+            component={ProfileScreen}
+            options={{headerShown: false, tabBarShowLabel: false}}
+          />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

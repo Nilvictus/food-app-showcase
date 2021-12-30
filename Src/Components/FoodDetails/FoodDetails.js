@@ -4,11 +4,16 @@ import styles from './style';
 import Photos from '../../Tools/ImageGroup';
 import Icon from '../../Tools/IconGroup';
 
-const FoodDetails = () => {
+type Props = {
+    foodDetails: ?void,
+    foodPrice: ?Number,
+}
+
+const FoodDetails = (props: Props) => {
     return (
         <View style={styles.detailsContainer}>
-            <Text style={styles.textPrice}>$28.00</Text>
-            <Text style={styles.textDescription}>Tasty Italian Piads</Text>
+            <Text style={styles.textPrice}>${props.foodPrice}</Text>
+            <Text style={styles.textDescription}>{props.foodDetails.name}</Text>
             <Image source={Icon.rateStar} style={styles.star}/>
         </View>
     )
