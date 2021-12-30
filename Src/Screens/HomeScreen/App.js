@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import styles from './style';
 import FoodSquareContainer from '../../Components/FoodSquareContainer/FoodSquareContainer';
@@ -147,11 +148,33 @@ function SearchScreen() {
   );
 }
 
-function HomeScreen() {
+const HomeStack = createNativeStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: false, tabBarShowLabel: false}}
+      />
+      <HomeStack.Screen
+        name="AddToBasketScreen"
+        component={AddToBasketScreen}
+      />
+    </HomeStack.Navigator>
+  );
+}
+
+function HomeScreen({navigation}) {
   var myloop = [];
   for (let i = 0; i < 5; i++) {
     myloop.push(<Image source={Icon.rateStar} style={styles.rateStar} />);
   }
+
+  const openAddBasketScreen = () => {
+    navigation.navigate('AddToBasketScreen');
+  };
 
   return (
     <View style={styles.main}>
@@ -189,7 +212,10 @@ function HomeScreen() {
               horizontal={true}
               showsHorizontalScrollIndicator={false}
               renderItem={({item}) => (
-                <PopularFood style={styles.popularFoodstyle} />
+                <PopularFood
+                  style={styles.popularFoodstyle}
+                  onPress={openAddBasketScreen}
+                />
               )}
             />
           </View>
@@ -236,7 +262,7 @@ function MyBasket() {
           <Text style={styles.deliveryText}>Time of delivery</Text>
           <Text style={styles.minutesText}>20-25 minutes</Text>
         </View>
-        <RoundedButton style={styles.buttonTotal} text={"Total  $155.96"}/>
+        <RoundedButton style={styles.buttonTotal} text={'Total  $155.96'} />
       </View>
     </View>
   );
@@ -273,6 +299,20 @@ const renderSearchFilter2 = () => {
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
+function Nav() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="AddToBasketScreen"
+          component={AddToBasketScreen}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
+
 function App() {
   return (
     <NavigationContainer>
@@ -283,26 +323,49 @@ function App() {
 
             if (route.name === 'Home') {
               iconName = focused ? Icon.house : Icon.house;
-              return <Image source={iconName} style={focused ? styles.homeFocused : styles.homeNotFocused} />;
+              return (
+                <Image
+                  source={iconName}
+                  style={focused ? styles.homeFocused : styles.homeNotFocused}
+                />
+              );
             } else if (route.name === 'Search') {
               iconName = focused ? Icon.search : Icon.search;
-              return <Image source={iconName} style={focused ? styles.searchFocused : styles.searchNotFocused} />;
+              return (
+                <Image
+                  source={iconName}
+                  style={
+                    focused ? styles.searchFocused : styles.searchNotFocused
+                  }
+                />
+              );
             } else if (route.name === 'MyBasket') {
               iconName = focused ? Icon.basket : Icon.basket;
-              return <Image source={iconName} style={focused ? styles.basketFocused : styles.basketNotFocused} />;
+              return (
+                <Image
+                  source={iconName}
+                  style={
+                    focused ? styles.basketFocused : styles.basketNotFocused
+                  }
+                />
+              );
             } else {
               iconName = focused ? Icon.profile : Icon.profile;
-              return <Image source={iconName} style={focused ? styles.profileFocused : styles.profileNotFocused} />;
+              return (
+                <Image
+                  source={iconName}
+                  style={
+                    focused ? styles.profileFocused : styles.profileNotFocused
+                  }
+                />
+              );
             }
-
-            
           },
         })}>
         <Tab.Screen
           name="Home"
-          component={HomeScreen}
-          options={{headerShown: false, tabBarShowLabel: false}}
-        />
+          component={HomeStackScreen}
+          options={{headerShown: false, tabBarShowLabel: false}}></Tab.Screen>
         <Tab.Screen
           name="Search"
           component={SearchScreen}

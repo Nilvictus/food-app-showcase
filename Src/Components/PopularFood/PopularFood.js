@@ -6,18 +6,24 @@ import Icon from '../../Tools/IconGroup';
 import RoundedButton from '../RoundedButton/RoundedButton';
 
 type Props = {
-    style: ?void,
-}
+  style: ?void,
+  onPress: () => ?void,
+};
 
 const PopularFood = (props: Props) => {
-    return(
-        <View style={[styles.main, props.style]}>
-            <Image source={Photos.pizza} style={styles.image} />
-            <Text style={styles.foodText}>Italian Piada</Text>
-            <Image source={Icon.rateStar} style={styles.rateStar}/>
-            <RoundedButton text={'See more  >'} style={styles.style} textStyle={styles.textStyle}/>
-        </View>
-    )
-}
+  return (
+    <View style={[styles.main, props.style]}>
+      <Image source={Photos.pizza} style={styles.image} />
+      <Text style={styles.foodText}>Italian Piada</Text>
+      <Image source={Icon.rateStar} style={styles.rateStar} />
+      <RoundedButton
+        text={'See more  >'}
+        style={styles.style}
+        textStyle={styles.textStyle}
+        onPress={props.onPress}
+      />
+    </View>
+  );
+};
 
 export default PopularFood;
