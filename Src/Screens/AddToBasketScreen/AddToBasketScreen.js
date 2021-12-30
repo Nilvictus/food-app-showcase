@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, View, Image, ScrollView} from 'react-native';
 import TopBar from '../../Components/TopBar/TopBar';
 import styles from './style';
@@ -10,6 +10,21 @@ import RoundedButton from '../../Components/RoundedButton/RoundedButton';
 const AddToBasketScreen = ({route, navigation}) => {
 
   const { detailsOfFood } = route.params;
+  const [quantity, setQuantity] = useState(1);
+
+  const addItem = () => {
+    let x = quantity + 1;
+    setQuantity(x);
+  };
+
+  const removeItem = () => {
+    let x = quantity - 1;
+    if (x < 1) {
+      setQuantity(1);
+    } else {
+      setQuantity(x);
+    }
+  };
 
   var myloop = [];
   for (let i = 0; i < 5; i++) {
@@ -25,8 +40,8 @@ const AddToBasketScreen = ({route, navigation}) => {
           <Text style={styles.foodText}>{detailsOfFood.name}</Text>
           <View style={styles.loopStarContainer}>{myloop}</View>
           <View style={styles.foodPriceContainer}>
-            <Text style={styles.priceText}>{detailsOfFood.price}</Text>
-            <FoodQuantity />
+            <Text style={styles.priceText}>${parseFloat(detailsOfFood.price) * parseFloat(quantity)}</Text>
+            <FoodQuantity quantity={quantity} onPressRemoveItem={removeItem} onPressAddItem={addItem}/>
           </View>
           <Text style={styles.aboutText}>About the food</Text>
           <Text style={styles.foodDescription}>

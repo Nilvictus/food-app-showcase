@@ -70,55 +70,55 @@ const foodData = [
     id: 1,
     name: 'Burger',
     source: Photos.burger,
-    price: "$28.00"
+    price: "28.00"
   },
   {
     id: 2,
     name: 'Pizza',
     source: Photos.pizza,
-    price: "$38.00"
+    price: "38.00"
   },
   {
     id: 3,
     name: 'Lasagna',
     source: Photos.lasagna,
-    price: "$18.00"
+    price: "18.00"
   },
   {
     id: 4,
     name: 'Burger',
     source: Photos.burger,
-    price: "$23.00"
+    price: "23.00"
   },
   {
     id: 5,
     name: 'Pizza',
     source: Photos.pizza,
-    price: "$67.00"
+    price: "67.00"
   },
   {
     id: 6,
     name: 'Lasagna',
     source: Photos.lasagna,
-    price: "$13.00"
+    price: "13.00"
   },
   {
     id: 7,
     name: 'Pizza',
     source: Photos.pizza,
-    price: "$43.00"
+    price: "43.00"
   },
   {
     id: 8,
     name: 'Lasagna',
     source: Photos.lasagna,
-    price: "$46.00"
+    price: "46.00"
   },
   {
     id: 9,
     name: 'Burger',
     source: Photos.burger,
-    price: "$29.00"
+    price: "29.00"
   },
 ];
 
@@ -205,6 +205,7 @@ function HomeScreen({navigation}) {
                 <FoodSquareContainer
                   homeStyle={styles.foodSquareContainerComponentHomeScreen}
                   foodDetails={item}
+                  onPress={()=>openAddBasketScreen(item)}
                 />
               )}
             />
