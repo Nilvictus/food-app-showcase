@@ -7,7 +7,10 @@ import Icon from '../../Tools/IconGroup';
 import FoodQuantity from '../../Components/FoodQuantity/FoodQuantity';
 import RoundedButton from '../../Components/RoundedButton/RoundedButton';
 
-const AddToBasketScreen = () => {
+const AddToBasketScreen = ({route, navigation}) => {
+
+  const { detailsOfFood } = route.params;
+
   var myloop = [];
   for (let i = 0; i < 5; i++) {
     myloop.push(<Image source={Icon.rateStar} style={styles.rateStar} />);
@@ -17,12 +20,12 @@ const AddToBasketScreen = () => {
     <View style={styles.main}>
       <TopBar />
       <ScrollView style={styles.scrollView}>
-        <Image source={Photos.pizza} style={styles.pizzaPhoto} />
+        <Image source={detailsOfFood.source} style={styles.pizzaPhoto} />
         <View style={styles.foodDetails}>
-          <Text style={styles.foodText}>Tasty Italian Piada</Text>
+          <Text style={styles.foodText}>{detailsOfFood.name}</Text>
           <View style={styles.loopStarContainer}>{myloop}</View>
           <View style={styles.foodPriceContainer}>
-            <Text style={styles.priceText}>$28.00</Text>
+            <Text style={styles.priceText}>{detailsOfFood.price}</Text>
             <FoodQuantity />
           </View>
           <Text style={styles.aboutText}>About the food</Text>

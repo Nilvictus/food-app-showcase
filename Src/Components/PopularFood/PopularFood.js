@@ -8,13 +8,14 @@ import RoundedButton from '../RoundedButton/RoundedButton';
 type Props = {
   style: ?void,
   onPress: () => ?void,
+  item: ?any,
 };
 
 const PopularFood = (props: Props) => {
   return (
     <View style={[styles.main, props.style]}>
-      <Image source={Photos.pizza} style={styles.image} />
-      <Text style={styles.foodText}>Italian Piada</Text>
+      <Image source={props.item.source} style={styles.image} />
+      <Text style={styles.foodText}>{props.item.name}</Text>
       <Image source={Icon.rateStar} style={styles.rateStar} />
       <RoundedButton
         text={'See more  >'}
