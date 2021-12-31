@@ -262,7 +262,8 @@ function MyBasket() {
   // const [totalPrice, setTotalPrice] = useState(0);
   const dispatch = useDispatch();
 
-  const foodDataRedux = useSelector(state => state.foodReducer.foodTotalPrice);
+  const foodTotalPriceRedux = useSelector(state => state.foodReducer.foodTotalPrice);
+  const foodDataRedux = useSelector(state => state.foodReducer.foodData);
 
   useEffect(() => {
     calculateTotal();
@@ -270,7 +271,7 @@ function MyBasket() {
 
   const calculateTotal = x => {
     let total = 0;
-    foodData.map(item => {
+    foodDataRedux.map(item => {
       total = total + parseInt(item.price);
     });
 
@@ -292,7 +293,7 @@ function MyBasket() {
         <FlatList
           showsVerticalScrollIndicator={false}
           style={styles.flatList2}
-          data={foodData}
+          data={foodDataRedux}
           renderItem={({item}) => (
             <FoodList
               homeStyle={styles.foodSquareContainerComponent}
@@ -310,7 +311,7 @@ function MyBasket() {
         </View>
         <RoundedButton
           style={styles.buttonTotal}
-          text={'Total $' + foodDataRedux}
+          text={'Total $' + foodTotalPriceRedux}
         />
       </View>
     </View>
