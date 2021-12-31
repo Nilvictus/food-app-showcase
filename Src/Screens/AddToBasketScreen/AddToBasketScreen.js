@@ -41,9 +41,18 @@ const AddToBasketScreen = ({route, navigation}) => {
 
   const addToBasketButton = () => {
     // foodObject.push(detailsOfFood);
-    dispatchedFood.push(detailsOfFood);
+
+    dispatchedFood.push({
+      id: detailsOfFood.id,
+      name: detailsOfFood.name,
+      price: detailsOfFood.price,
+      totalPrice: (detailsOfFood.price * quantity).toFixed(2),
+      source: detailsOfFood.source,
+      quantity: quantity,
+    });
+    console.log('see pushed', dispatchedFood);
     dispatch(setFoodData([...dispatchedFood]));
-    console.log('see the dispatched food', detailsOfFood);
+    console.log('see the dispatched food', dispatchedFood);
   };
 
   return (

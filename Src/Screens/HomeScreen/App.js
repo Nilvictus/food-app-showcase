@@ -267,7 +267,7 @@ function MyBasket() {
 
   useEffect(() => {
     calculateTotal();
-  }, []);
+  }, [foodDataRedux]);
 
   const calculateTotal = x => {
     let total = 0;
@@ -275,7 +275,7 @@ function MyBasket() {
 
     if(foodDataRedux){
       foodDataRedux.map(item => {
-        total = total + parseInt(item.price);
+        total = total + parseInt(item.totalPrice);
       });
     }
 
