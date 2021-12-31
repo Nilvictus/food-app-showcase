@@ -5,6 +5,8 @@ import Photos from '../../Tools/ImageGroup';
 import Icon from '../../Tools/IconGroup';
 import FoodDetails from '../FoodDetails/FoodDetails';
 import FoodQuantity from '../FoodQuantity/FoodQuantity';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFoodPriceRedux, setTotalPriceRedux } from '../../Services/Redux/Actions/Index';
 
 type Props = {
   foodDetails: ?void,
@@ -12,19 +14,32 @@ type Props = {
 };
 
 const FoodList = (props: Props) => {
+
+  const dispatch = useDispatch();
+  const foodPriceRedux = useSelector(state => state.foodReducer.foodPrice);
+  const foodTotalPriceRedux = useSelector(state => state.foodReducer.foodTotalPrice); 
+
   const [quantity, setQuantity] = useState(1);
   const [foodPrice, setFoodPrice] = useState(props.foodDetails.price);
 
-  const calculateFoodPrice = x => {
+  const calculateFoodPrice = (x, action) => {
     let price = parseFloat(props.foodDetails.price) * x;
     setFoodPrice(price.toFixed(2));
+
+    if(action === 'addItem') {
+      let totalPriceRedux = foodTotalPriceRedux + parseFloat(props.foodDetails.price);
+      dispatch(setTotalPriceRedux(totalPriceRedux));
+    } else if (action === 'removeItem') {
+      let totalPriceRedux = foodTotalPriceRedux - parseFloat(props.foodDetails.price);
+      dispatch(setTotalPriceRedux(totalPriceRedux));
+    }
   };
 
   const addItem = () => {
     let x = quantity + 1;
     setQuantity(x);
 
-    calculateFoodPrice(x);
+    calculateFoodPrice(x, 'addItem');
     props.calculate;
   };
 
@@ -32,10 +47,10 @@ const FoodList = (props: Props) => {
     let x = quantity - 1;
     if (x < 1) {
       setQuantity(1);
-      calculateFoodPrice(1);
+      calculateFoodPrice(1, 'minOrder');
     } else {
       setQuantity(x);
-      calculateFoodPrice(x);
+      calculateFoodPrice(x, 'removeItem');
     }
     props.calculate;
   };

@@ -31,7 +31,7 @@ import configureStore from '../../Services/Redux/Store/ConfigureStore';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setFoodData,
-  setTotalPrice,
+  setTotalPriceRedux,
 } from '../../Services/Redux/Actions/Index';
 
 const searchFilter = [
@@ -276,13 +276,13 @@ function MyBasket() {
     });
 
     // setTotalPrice(total);
-    dispatch(setTotalPrice(total));
+    dispatch(setTotalPriceRedux(total));
   };
 
   const addCalculate = x => {
     alert('yow');
     let total = totalPrice + x;
-    dispatch(setTotalPrice(total));
+    dispatch(setTotalPriceRedux(total));
   };
 
   return (

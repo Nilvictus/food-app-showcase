@@ -1,9 +1,10 @@
-import {SET_FOOD_DATA, SET_TOTAL_PRICE} from '../Constants/Index';
+import {SET_FOOD_DATA, SET_TOTAL_PRICE, SET_FOOD_PRICE} from '../Constants/Index';
 import Photos from '../../../Tools/ImageGroup';
 
 export type FoodReducerState = {
   foodData: ?(any[]),
   foodTotalPrice: ?any,
+  foodPrice: ?any,
 };
 
 const initialState: FoodReducerState = {
@@ -64,6 +65,7 @@ const initialState: FoodReducerState = {
     },
   ],
   foodTotalPrice: null,
+  foodPrice: null,
 };
 
 const FoodReducer = (state: FoodReducerState = initialState, action: any) => {
@@ -78,6 +80,11 @@ const FoodReducer = (state: FoodReducerState = initialState, action: any) => {
         ...state,
         foodTotalPrice: action.payload,
       };
+      case SET_FOOD_PRICE:
+        return {
+          ...state,
+          foodPrice: action.payload,
+        };
     default:
       return state;
   }
