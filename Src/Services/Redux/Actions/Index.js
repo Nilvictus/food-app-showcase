@@ -5,6 +5,7 @@ import {
 } from '../Constants/Index';
 
 export function setFoodData(data: any) {
+    console.log('natawag ako', data);
     return {
         type: SET_FOOD_DATA,
         payload: data,

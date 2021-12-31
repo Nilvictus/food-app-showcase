@@ -271,9 +271,13 @@ function MyBasket() {
 
   const calculateTotal = x => {
     let total = 0;
-    foodDataRedux.map(item => {
-      total = total + parseInt(item.price);
-    });
+    console.log('see the foodDataRedux', foodDataRedux);
+
+    if(foodDataRedux){
+      foodDataRedux.map(item => {
+        total = total + parseInt(item.price);
+      });
+    }
 
     // setTotalPrice(total);
     dispatch(setTotalPriceRedux(total));
